@@ -1,0 +1,24 @@
+<div class="flex items-center justify-center min-h-screen container mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="rounded-2xl shadow-lg bg-lime-700 p-4" *ngFor="let product of storeslist">
+            <div class="p-6 flex flex-col text-center text-2xl font-bold">
+                {{product.name}}
+            </div>
+            <div class="flex justify-center items-center rounded-3xl overflow-hidden">
+                <img [src]="product.imageUrl" class="w-full object-cover h-48">
+            </div>
+         
+
+                <div class="text-lg my-8 ml-4 ms-5px">
+                    {{ truncateText(product.description, 10) }}
+                </div>
+                <div class="card-footer flex justify-between mt-4">
+                    <button class="btn bg-blue-500 text-white px-4 py-2 rounded-lg" [routerLink]="['/products', 'single', product._id]">Show</button>
+                    <button class="btn bg-transparent border-blue-500 text-blue-500 border-2 px-4 py-2 rounded-lg" [routerLink]="['/products', 'update', product._id]">
+                        Update
+                    </button>
+                </div>
+            
+        </div>
+    </div>
+</div>

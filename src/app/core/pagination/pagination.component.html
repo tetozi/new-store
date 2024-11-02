@@ -1,0 +1,26 @@
+<nav aria-label="Page navigation example" class="mt-4">
+  <ul class="inline-flex items-center space-x-2 text-sm">
+    <li [class.disabled]="currentPage === 1">
+      <a (click)="currentPage > 1 && goToPreviousPage()"
+         class="flex items-center justify-center px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-500 hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">
+        Previous
+      </a>
+    </li>
+    
+    <li *ngFor="let page of [].constructor(totalPages > 0 ? totalPages : 1); let i = index">
+      <a (click)="onPageChange(i + 1)"
+         [class.text-blue-600]="currentPage === i + 1"
+         [class.bg-blue-100]="currentPage === i + 1"
+         class="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 bg-white text-gray-500 hover:bg-blue-100 hover:text-blue-600 transition-colors duration-300">
+        {{ i + 1 }}
+      </a>
+    </li>
+
+    <li [class.disabled]="currentPage === totalPages">
+      <a (click)="currentPage < totalPages && goToNextPage()"
+         class="flex items-center justify-center px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-500 hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">
+        Next
+      </a>
+    </li>
+  </ul>
+</nav>

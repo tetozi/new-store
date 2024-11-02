@@ -1,0 +1,50 @@
+form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3f51b5; /* Material primary color */
+  margin-bottom: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
+
+.sign-up-text {
+  font-size: 0.9rem;
+}
+
+.sign-up-link {
+  color: #3f51b5; /* Material primary color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sign-up-link:hover {
+  text-decoration: underline;
+}
+
+button.full-width {
+  padding: 10px 0;
+  font-size: 1.2rem;
+}
+
+.mat-form-field {
+  width: 100%;
+}

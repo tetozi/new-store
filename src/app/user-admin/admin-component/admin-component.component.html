@@ -1,0 +1,123 @@
+
+<div class="grid-container">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="menu-icon">
+            <mat-icon>alarm</mat-icon>
+
+        </div>
+        <div class="header-left">
+
+            <mat-icon>search</mat-icon>
+        </div>
+        <div class="header-right">
+            <mat-icon>email</mat-icon>
+            <mat-icon>notifications</mat-icon>
+            <mat-icon>account_box</mat-icon>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <div class="sidebar-title">
+            <div class="sidebar-brand">
+                <mat-icon>dashboard</mat-icon> STORE
+            </div>
+            <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+        </div>
+
+        <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+                <mat-icon>inventory_2</mat-icon>
+                <a  routerLink="/create"><span>Create Products</span></a>
+            </li>
+            <li class="sidebar-list-item">
+                <mat-icon>category</mat-icon>
+
+                <a routerLink="/products"> <span> All Products</span></a>  
+
+            </li>
+            <li class="sidebar-list-item">
+                <a href="#" target="_blank">
+                    <mat-icon>groups</mat-icon>
+                    Customers
+                </a>
+            </li>
+            <li class="sidebar-list-item">
+                <a href="#" target="_blank">
+                    <mat-icon>fact_check</mat-icon>
+                    <span class="material-icons-outlined"></span> Inventory
+                </a>
+            </li>
+            <li class="sidebar-list-item">
+                <a href="#" target="_blank">
+                    <mat-icon>settings</mat-icon>
+                    <span class="material-icons-outlined"></span> Settings
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- End Sidebar -->
+
+    <!-- Main -->
+    <main class="main-container">
+        <div class="main-title">
+            <h2>DASHBOARD</h2>
+        </div>
+
+        <div class="main-cards">
+
+            <div class="card">
+                <div class="card-inner">
+                    <h3>PRODUCTS</h3>
+                    <mat-icon>inventory_2</mat-icon>
+                </div>
+                <h1>249</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <h3> All Products</h3>
+                    <mat-icon>category</mat-icon>
+                </div>
+                <h1>25</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <h3>CUSTOMERS</h3>
+                    <mat-icon>groups</mat-icon>
+                </div>
+                <h1>1500</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <h3>ALERTS</h3>
+                    <mat-icon>notification_important</mat-icon>
+                    <span class="material-icons-outlined"></span>
+                </div>
+                <h1>56</h1>
+            </div>
+
+        </div>
+
+        <div class="charts">
+
+            <div class="charts-card">
+                <h2 class="chart-title">Top 5 Products</h2>
+                <div id="bar-chart"></div>
+            </div>
+
+            <div class="charts-card">
+                <h2 class="chart-title">Purchase and Sales Orders</h2>
+                <div id="area-chart"></div>
+            </div>
+
+        </div>
+    </main>
+    <!-- End Main -->
+
+</div>
