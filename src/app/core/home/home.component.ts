@@ -31,8 +31,7 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     this.loadProducts();
     this.loadTotalProductsCount();  
-    console.log(this.currentPage)
-    console.log(this.totalProducts)
+   
   }
   // Reload limit kf the products of page
   onItemsUpdated(limit: number) {
@@ -45,7 +44,7 @@ export class HomeComponent implements OnInit{
  loadTotalProductsCount()  {
   this.storeService.getTotalProductsCount().subscribe(response => {
     if (response.status === "success"&& response.data) {
-      console.log(response.data.totalProducts)
+      
       this.totalProducts = response.data.totalProducts || 0;
     } else {
       this.totalProducts = 0; 
@@ -58,9 +57,10 @@ export class HomeComponent implements OnInit{
     this.currentPage = page;
     this.loadProducts();  // Презареждане на продуктите за новата страница
   }
-  onColumnsCountChange(event: any) {
-    console.log('Columns count changed:', event);
-    // Add your logic here
+  onColumnsCountChange(event: number) {
+    this.cols = event;
+    this.rowHeight = ROWS_HEIGHT[this.cols]
+    console.log('Cols value:', this.cols);
   }
   
   onSortChange(event: any) {

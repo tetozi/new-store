@@ -19,6 +19,8 @@ import { CartComponent } from './cart/cart.component'
 
 import { CreateProductComponent } from '../user-admin/create-product/create-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OneProductComponent } from './one-product/one-product.component';
+
 
 
 
@@ -46,16 +48,13 @@ const modules: any = [
     ProductBoxComponent,
     CartComponent,
     CreateProductComponent,
-
-   
+    OneProductComponent,
 
   ],
   imports: [
     CommonModule,
     ...modules,
     ReactiveFormsModule,
-
-
 
   ],
   exports: [

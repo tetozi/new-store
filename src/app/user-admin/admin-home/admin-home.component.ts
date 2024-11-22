@@ -16,11 +16,11 @@ export class AdminHomeComponent implements OnInit {
     this.loadProducts();
   }
 
-  // Функция за зареждане на продуктите
+  // Got all products 
   loadProducts(): void {
     this.storeService.getProducts(this.limit).subscribe({
       next: (data) => {
-        this.storeslist = data; // Запълваме списъка с продукти
+        this.storeslist = data; 
       },
       error: (err) => {
         console.error('Error loading products', err);
@@ -28,7 +28,7 @@ export class AdminHomeComponent implements OnInit {
     });
   }
 
-  // Функция за съкращаване на описанията (ако вече не е имплементирана)
+  // Limit the text 
   truncateText(text: string, limit: number): string {
     return text.length > limit ? text.substring(0, limit) + '...' : text;
   }

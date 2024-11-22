@@ -37,14 +37,16 @@ export class FiltersComponent implements OnInit {
     }
   }
 
-  // Функция за зареждане на продуктите от избраната категория
+  // Got all products for this category
   getCategoryProducts(categoryId: string) {
     this.storeService.getCategory(categoryId).subscribe((category) => {
       if (category && category.products) {
-        this.showCategory.emit(category.products); // Изпращане на продуктите към HomeComponent
+        // Send to Home Component
+        this.showCategory.emit(category.products);
       } else {
         console.error('No products found for this category');
-        this.showCategory.emit([]); // Празен масив, ако няма продукти
+        // Make empty array with products
+        this.showCategory.emit([]); 
       }
     });
   }

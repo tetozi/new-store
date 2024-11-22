@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartService } from './services/cart.service';
 import { AuthModule } from './auth/auth.module';
 import { UserAdminModule } from './user-admin/user-admin.module';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -21,6 +22,7 @@ import { UserAdminModule } from './user-admin/user-admin.module';
 
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,

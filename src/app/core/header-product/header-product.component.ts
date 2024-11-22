@@ -14,8 +14,9 @@ export class HeaderProductComponent {
  
   constructor() {}
 
-  onColumnsUpdated(colsNum: number): void {
-    this.columnsCountChange.emit(colsNum);
+  onColumnsUpdated(cols: number): void {
+    console.log('Emitting Columns Count:', cols);
+    this.columnsCountChange.emit(cols);
   }
  // Send  the limit of the products for page
   onItemsUpdated(limit: number) {
