@@ -31,12 +31,20 @@ export class LoginComponent {
 
   onLogin() {
     if (this.form.invalid) {
-      return
+      return;
     }
-    const { email, password } = this.form.value
-    this.authService.login(email, password)
-    this.router.navigate(['/'])
-   }
-   
+  
+    const { email, password } = this.form.value;
+  
+    this.authService.login(email, password).subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        console.error('Login failed:', err);
+       
+      }
+    });
+  }
   
 }

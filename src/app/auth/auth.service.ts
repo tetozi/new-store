@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap,} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
-
+const {apiUrl} = environment
 @Injectable({
   providedIn: 'root'
 })
@@ -20,23 +21,20 @@ public user = this.user$.asObservable();
      this.user.subscribe(user => console.log(user))
   }
  // Save user in Behavior Subject
-  login(email: string, password: string): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.http
-        .post('http://localhost:4242/api/user/login', { email, password })
-        .subscribe(
-          (response: any) => {
-            localStorage.setItem('token', response.data.token);
-            this.user$.next( response.data.user)
-            console.log(response.data.user)
-            resolve(this.user$);
-          },
-          (error) => {
-            reject(error);
-          }
-        );
+ login(email: string, password: string): Observable<any> {
+  return this.http.post(`${apiUrl}/api/user/login`, { email, password }).pipe(
+    tap((response: any) => {
+      if (response.status === "Success" && response.data) {
+        const { user, token } = response.data;
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+        this.user$.next(user);
+      } else {
+        throw new Error('Invalid response format');
+      }
     })
-  }
+  );
+}
 
   register(userData: any): Observable<any> {
     return this.http.post<any>('http://localhost:4242/api/user/register', userData).pipe(
@@ -62,7 +60,6 @@ public user = this.user$.asObservable();
   }
   //clear all value
   logout() {
-   
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     this.user$.next(null);

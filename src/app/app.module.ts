@@ -11,6 +11,7 @@ import { CartService } from './services/cart.service';
 import { AuthModule } from './auth/auth.module';
 import { UserAdminModule } from './user-admin/user-admin.module';
 import { CommonModule } from '@angular/common';
+import { appInterceptProvider } from './app.interceptor';
 
 
 
@@ -33,7 +34,10 @@ import { CommonModule } from '@angular/common';
     UserAdminModule
 
   ],
-  providers: [CartService],
+  providers: [
+    CartService,
+    appInterceptProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

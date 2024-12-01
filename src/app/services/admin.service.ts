@@ -2,10 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Stores } from '../Interface/productmodel';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 
 
-const adminUrl = 'http://localhost:4242'
+const {apiUrl} = environment
 @Injectable({
   providedIn: 'root'
 })
@@ -17,16 +18,16 @@ export class AdminService {
 
    getProducts () {
     return this.http.get<Stores[]>(
-      `${adminUrl}/api/product`
+      `${apiUrl}/api/product`
     )
    }
    getProduct (id:string) {
     return this.http.get<Stores>(
-      `${adminUrl}/api/product/${id}`
+      `${apiUrl}/api/product/${id}`
     )
    }
 
    updateProduct(id:string,data: any) :Observable<any> {
-    return this.http.patch<Stores>(`${adminUrl}/api/product/${id}`,data)
+    return this.http.patch<Stores>(`${apiUrl}/api/product/${id}`,data)
   }
 }
