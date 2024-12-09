@@ -37,7 +37,7 @@ public user = this.user$.asObservable();
 }
 
   register(userData: any): Observable<any> {
-    return this.http.post<any>('http://localhost:4242/api/user/register', userData).pipe(
+    return this.http.post<any>(`${apiUrl}/user/register`, userData).pipe(
       tap(response => {
         localStorage.setItem('token', response.data.token);  
         localStorage.setItem('user', JSON.stringify(response.data.user));  

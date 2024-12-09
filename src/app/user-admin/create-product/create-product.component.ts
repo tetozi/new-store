@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductService } from 'src/app/services/product.service';
+import { AdminService } from 'src/app/services/admin.service';
+
 
 @Component({
   selector: 'app-create-product',
@@ -12,7 +13,7 @@ export class CreateProductComponent {
   
 
   constructor(
-    private productService: ProductService,
+    private adminService: AdminService,
     private  router : Router
     
   ) {
@@ -50,7 +51,7 @@ export class CreateProductComponent {
   }
 
   createProduct(): void {
-    this.productService.createProduct(this.form.value).subscribe(
+    this.adminService.createProduct(this.form.value).subscribe(
       ({
         next: (data) => {
          this.router.navigate(['/admin'])

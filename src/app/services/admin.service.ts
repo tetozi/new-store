@@ -18,14 +18,18 @@ export class AdminService {
 
    getProducts () {
     return this.http.get<Stores[]>(
-      `${apiUrl}/api/product`
+      `${apiUrl}/api/admin`
     )
    }
    getProduct (id:string) {
     return this.http.get<Stores>(
-      `${apiUrl}/api/product/${id}`
+      `${apiUrl}/api/admin/${id}`
     )
    }
+
+   createProduct(data: any): Observable<any> {
+    return this.http.post(`${apiUrl}api/admin/create`, data)
+  }
 
    updateProduct(id:string,data: any) :Observable<any> {
     return this.http.patch<Stores>(`${apiUrl}/api/product/${id}`,data)

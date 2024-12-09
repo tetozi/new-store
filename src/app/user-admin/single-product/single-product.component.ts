@@ -11,21 +11,23 @@ import { AdminService } from 'src/app/services/admin.service';
 export class SingleProductComponent implements OnInit {
   product: Stores | undefined
 
-  constructor(private adminService : AdminService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private adminService: AdminService,
+    private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
     this.fetchProduct()
-    
+
   }
   fetchProduct(): void {
-    
+
     const id = this.activatedRoute.snapshot.params['id']
     console.log(id)
 
-  this.adminService.getProduct(id).subscribe((product) =>{
-   console.log(product)
-    this.product = product
-  
-  });
+    this.adminService.getProduct(id).subscribe((product) => {
+      console.log(product)
+      this.product = product
+
+    });
   }
 
 }

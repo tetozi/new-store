@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { Product } from '../Interface/store.model';
 import { HttpClient } from '@angular/common/http';
 import { Category } from '../Interface/category,model';
+import { environment } from 'src/environments/environment.prod';
 
-const apiUrl = 'http://localhost:4242';
-
+const {apiUrl} = environment
 @Injectable({
   providedIn: 'root',
 })

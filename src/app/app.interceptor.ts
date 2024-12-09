@@ -8,14 +8,24 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
+
 const {apiUrl} = environment  
+
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
 
   constructor() {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const authToken = localStorage.getItem('token'); // Извличане на токена
+    if (authToken && request.url.startsWith('/api')) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+    }
     return next.handle(request);
   }
  

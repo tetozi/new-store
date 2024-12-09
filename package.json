@@ -21,6 +21,8 @@
     "@angular/platform-browser-dynamic": "^15.2.9",
     "@angular/router": "^15.2.9",
     "@stripe/stripe-js": "^1.35.0",
+    "express-utils": "^0.1.2",
+    "nodemailer": "^6.9.16",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "validator": "^13.11.0",
