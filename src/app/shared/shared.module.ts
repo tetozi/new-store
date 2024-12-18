@@ -20,6 +20,7 @@ import { CartComponent } from './cart/cart.component'
 import { CreateProductComponent } from '../user-admin/create-product/create-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OneProductComponent } from './one-product/one-product.component';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -49,6 +50,7 @@ const modules: any = [
     CartComponent,
     CreateProductComponent,
     OneProductComponent,
+    ErrorComponent,
 
   ],
   imports: [

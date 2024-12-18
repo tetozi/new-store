@@ -11,6 +11,7 @@ import categoryRouter from './Routes/categoryRouter.js'
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import cookieParser from 'cookie-parser';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -36,11 +37,17 @@ app.get('/', (req, res) => {
 
 
 app.use(express.json());
+app.use(cookieParser())
 
 app.use(cors({
   origin: 'http://localhost:4200',
   credentials: true,
 }));
+
+app.use((req,res , next) =>{
+  console.log(req.cookies)
+  next()
+})
 
 app.use('/api/user', authRouter)
 app.use('/api/admin', adminRouter)
@@ -49,9 +56,9 @@ app.use('/api/category', categoryRouter)
 
 app.use('/shopingcart', checkoutRouter)
 app.all('*', (req, res, next) => {
- 
-    next(new AppError('Page not found '), 404)
-  })
+  console.log(`Unmatched route: ${req.method} ${req.originalUrl}`);
+  next(new AppError('Page not found', 404));
+});
   
 app.use(globalError)
 

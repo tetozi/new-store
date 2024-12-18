@@ -1,6 +1,5 @@
 export interface User {
     email: string,
-    token : string,
     role: string,
-    _id: string
+    _id: string,
 }

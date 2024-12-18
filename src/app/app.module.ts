@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserAdminModule } from './user-admin/user-admin.module';
 import { CommonModule } from '@angular/common';
 import { appInterceptProvider } from './app.interceptor';
+import { AuthenticatedComponent } from './authenticated/authenticated.component';
 
 
 
@@ -19,6 +20,7 @@ import { appInterceptProvider } from './app.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
+    AuthenticatedComponent,
     
 
   ],
