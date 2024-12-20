@@ -1,33 +1,28 @@
-
-<mat-card *ngIf="product" [ngClass]="{ 'text-center': !fullWidthMode }">
-    <div [ngClass]="{ flex: fullWidthMode }">
-      <img
-        class="mb-1 mx-auto"
-        [ngClass]="{ 'h-[200px]': !fullWidthMode, 'h-[360px]': fullWidthMode }"
-        [src]="product.imageUrl"
-      />
-      <div
-        class="w-full"
-        [ngClass]="{ 'px-8 flex flex-col justify-between': fullWidthMode }"
-      >
-        <div>
-        
-          <p
-            class="truncate hover:whitespace-normal"
-            [ngClass]="{ truncate: !fullWidthMode }"
-          >
-            {{ product.name }}
-          </p>
-          <p *ngIf="fullWidthMode">
-            {{ product.description }}
-          </p>
-        </div>
-        <div class="flex justify-between">
-          <span class="text-red-400">{{ product.price | currency }}</span>
-          <button (click)="onAddToCart()">
-            <mat-icon class="text-gray-500">shopping_cart</mat-icon>
-          </button>
-        </div>
+<mat-card *ngIf="product" [ngClass]="{ 'text-center bg-gray-100 p-6': !fullWidthMode, 'flex bg-white p-8': fullWidthMode }">
+  <div [ngClass]="{ 'flex': fullWidthMode }">
+    <img
+      class="mb-1 mx-auto"
+      [ngClass]="{ 'h-[200px] w-full object-cover rounded-md': !fullWidthMode, 'h-[360px] w-[50%] object-cover rounded-lg': fullWidthMode }"
+      [src]="product.imageUrl"
+    />
+    <div class="w-full flex flex-col justify-between px-8">
+      <div>
+        <p class="text-lg font-bold truncate hover:whitespace-normal">
+          {{ product.name }}
+        </p>
+        <p *ngIf="fullWidthMode" class="text-gray-600 mt-2">
+          {{ product.description }}
+        </p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <span class="text-red-500 font-semibold">{{ product.price | currency }}</span>
+        <button
+          class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-500 transition"
+          (click)="onAddToCart()"
+        >
+          <mat-icon class="text-white">shopping_cart</mat-icon>
+        </button>
       </div>
     </div>
-  </mat-card>
+  </div>
+</mat-card>

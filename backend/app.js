@@ -54,7 +54,7 @@ app.use('/api/admin', adminRouter)
 app.use('/api/product', productRourer)
 app.use('/api/category', categoryRouter)
 
-app.use('/shopingcart', checkoutRouter)
+app.use('/api/shopingcart', checkoutRouter)
 app.all('*', (req, res, next) => {
   console.log(`Unmatched route: ${req.method} ${req.originalUrl}`);
   next(new AppError('Page not found', 404));

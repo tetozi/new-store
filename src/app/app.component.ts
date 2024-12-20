@@ -9,10 +9,11 @@ import { CartService } from './services/cart.service';
 })
 export class AppComponent implements OnInit {
   cart: Cart = { items: [] };
-
+  title = 'new-store'
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
+
     this.cartService.cart.subscribe((_cart) => {
       this.cart = _cart;
     });

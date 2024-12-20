@@ -64,7 +64,7 @@ const modules: any = [
     ProductBoxComponent,
     CartComponent,
     CreateProductComponent,
-   
+   ErrorComponent
   ]
 })
 export class SharedModule { }

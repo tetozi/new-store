@@ -6,10 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ErrorService {
   private errorMessage = new BehaviorSubject<string | null>(null);
-  errorMessage$ = this.errorMessage.asObservable(); // Абониране за промени
-
+  errorMessage$ = this.errorMessage.asObservable(); 
   setError(message: string) {
     this.errorMessage.next(message);
+    setTimeout(() => {
+      this.clearError();
+    }, 5000); 
   }
 
   clearError() {

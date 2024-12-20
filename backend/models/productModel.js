@@ -16,7 +16,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Pizza  must have a image']
     },
-    quanrity: {
+    quantity: {
         type: Number,
 
     },

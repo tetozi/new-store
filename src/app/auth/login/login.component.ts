@@ -20,10 +20,10 @@ export class LoginComponent {
            private router : Router) { }
   ngOnit() {
     this.form = this.fb.group({
-      email : ['',[Validators.required, Validators.email]],
-      password: ['',[Validators.minLength(6), Validators.required]],
-      passwordConfirm: ['', []]
-    })  
+      email: ['', [Validators.required, Validators.email]], 
+      password: ['', [Validators.required, Validators.minLength(6)]] 
+    });
+
 
   }
 
@@ -31,9 +31,9 @@ export class LoginComponent {
 
   onLogin() {
     if (this.form.invalid) {
+      console.log('Form is invalid:', this.form.value);
       return;
     }
-  
     const { email, password } = this.form.value;
   
     this.authService.login(email, password).subscribe({
