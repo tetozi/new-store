@@ -13,10 +13,11 @@
                     {{ truncateText(product.description, 10) }}
                 </div>
                 <div class="card-footer flex justify-between mt-4">
-                    <button class="btn bg-blue-500 text-white px-4 py-2 rounded-lg" [routerLink]="['/products', 'single', product._id]">Show</button>
-                    <button class="btn bg-transparent border-blue-500 text-blue-500 border-2 px-4 py-2 rounded-lg" [routerLink]="['/products', 'update', product._id]">
+                    <button class="btn bg-blue-500 text-white px-4 py-2 rounded-lg" [routerLink]="['/admin/products', 'single', product._id]">Show</button>
+                    <button class="btn bg-transparent border-blue-500 text-blue-500 border-2 px-4 py-2 rounded-lg" [routerLink]="['/admin/products', 'update', product._id]">
                         Update
                     </button>
+                    
                 </div>
             
         </div>

@@ -32,6 +32,6 @@ export class AdminService {
   }
 
    updateProduct(id:string,data: any) :Observable<any> {
-    return this.http.patch<Stores>(`${apiUrl}/api/product/${id}`,data)
+    return this.http.patch<Stores>(`${apiUrl}/api/admin/product/${id}`,data)
   }
 }

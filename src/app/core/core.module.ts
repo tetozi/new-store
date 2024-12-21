@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 
 import { PaginationComponent } from './pagination/pagination.component';
 import { SharedModule } from '../shared/shared.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -19,7 +20,8 @@ import { SharedModule } from '../shared/shared.module';
     HomeComponent,
     HeaderProductComponent,
     FiltersComponent,
-    PaginationComponent
+    PaginationComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,7 @@ import { SharedModule } from '../shared/shared.module';
     HomeComponent,
     HeaderProductComponent,
     FiltersComponent,
-    
+    PageNotFoundComponent
   ]
 })
 export class CoreModule { }

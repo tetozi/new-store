@@ -162,5 +162,13 @@ export const forgotPassword = catchAsync(async (req, res, next) => {
   const resetToken = user.resetTokenForPassword()
   await user.save({ validateBeforeSave: false })
 })
-
+/*
+export const logout = (req, res) => {
+  res.cookie('jwt', 'loogedout', {
+    exoires: new Date(Date.now() + 10 + 1000),
+    httpOnly: true
+  })
+  res.status(200).json({status:'success'})
+}
+*/
 export const resetPassword = (req, res, next) => { }

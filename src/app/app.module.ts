@@ -17,10 +17,12 @@ import { AuthenticatedComponent } from './authenticated/authenticated.component'
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticatedComponent,
+   
     
 
   ],

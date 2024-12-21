@@ -11,7 +11,7 @@ export class HeaderProductComponent {
   @Output() sortChange = new EventEmitter<string>();
   itemsShowCount = 12;
   sort = 'desc';
- 
+  
   constructor() {}
 
   onColumnsUpdated(cols: number): void {
@@ -21,6 +21,7 @@ export class HeaderProductComponent {
  // Send  the limit of the products for page
   onItemsUpdated(limit: number) {
     this.itemsCountChange.emit(limit); 
+    console.log(`Updated itemsShowCount to ${this.itemsShowCount}`);
   }
 
   onSortUpdated(newSort: string): void {

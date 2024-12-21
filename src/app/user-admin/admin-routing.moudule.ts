@@ -9,34 +9,14 @@ import { CreateProductComponent } from './create-product/create-product.componen
 
 
 const routes: Routes = [
-
-  {
-    path: 'admin',
-    pathMatch: "full",
-    component: AdminComponentComponent
-
-  },
-   {
-    path:'products',
-    component: AdminHomeComponent,
-   },
-   {
-    path:"products/single/:id",
-    component:SingleProductComponent
-   },
-  {
-    path:'products/update/:id',
-    component:UpdateProductComponent
-  },
-  {
-    path:'create',
-    component:CreateProductComponent
+  { path: '', component: AdminComponentComponent, children: [
+      { path: 'products', component: AdminHomeComponent },
+      { path: 'products/single/:id', component: SingleProductComponent },
+      { path: 'products/update/:id', component: UpdateProductComponent },
+      { path: 'create', component: CreateProductComponent }
+    ]
   }
-
-
-
 ];
-
 
 
 @NgModule({

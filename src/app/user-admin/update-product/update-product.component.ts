@@ -39,7 +39,7 @@ export class UpdateProductComponent implements OnInit {
     this.storeService.getCategories().subscribe((data: any[]) => {
       this.categories = data;
       
-      // Ако има налични категории, инициализирайте selectedCategoryId с ID на първата
+      
       if (this.storeService.getCategories.length > 0) {
         this.selectedCategoryId = this.categories[0]._id;
       }
